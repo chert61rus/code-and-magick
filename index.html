@@ -181,6 +181,7 @@
   </div>
 </template>
 <script>
+
 var fireballSize = 22; //размер фаербола
 var getFireballSpeed = function(left){
     if (left === true) {return 5;}
@@ -191,6 +192,7 @@ var wizardWidth = 70; // ширину мага
 var getWizardHeight = function(){
    return 1.337 * wizardWidth;
 }; //пропорциональная высота мага
+
 function getWizardX(width) {return 0.5 * width;}; //координата по X 
 function getWizardY(height) {return 2/3 * height;}; //координата по Y
 </script>
