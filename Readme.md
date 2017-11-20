@@ -1,6 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
-* Студент: [tabriz  movsumlu](https://up.htmlacademy.ru/javascript/11/user/476319).
+* Студент: [Tabriz  Movsumlu](https://up.htmlacademy.ru/javascript/11/user/476319).
+* Наставник: [Ренат Туктаров](https://htmlacademy.ru/profile/id408799).
 
 ---
 
