@@ -17,8 +17,8 @@ window.renderStatistics = function (ctx, names, times) {
   var lineHeight = 15;
   var step = 50;
   var max = -1;
-//  var maxIndex = -1;
-  for (var i=0; i < times.length; i++) {
+  var maxIndex = -1;
+  for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
       max = time;
@@ -26,16 +26,16 @@ window.renderStatistics = function (ctx, names, times) {
     }
 }
 
-  for (var j=0; j < times.length; j++) {
+  for (var j = 0; j < times.length; j++) {
     var timePercent = times[j] / max * 100;
-    var timeHeight = barHeigth * timePercent/100;
+    var timeHeight = barHeigth * timePercent / 100;
     var timeX = initialX + j * (step + indent);
     var shiftY = barHeigth - timeHeight;
     if (names[j] === 'Вы') {
-      ctx.fillStyle='rgba(255, 0, 0, 1)';
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle='rgba(0,0,255,' + Math.random() + ')';
-      }
+      ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
+  }
     ctx.fillRect(timeX, initialY + shiftY, indent, timeHeight);
     ctx.fillStyle='black';
     ctx.fillText(Math.round(times[j]), timeX, initialY + shiftY - 4);

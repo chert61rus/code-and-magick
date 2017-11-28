@@ -29,17 +29,17 @@ function createWizards() {
     name: getRandomNames() + ' ' + getRandomLastNames(),
     coatColor: getRandomCoatColor(),
     eyesColor: getRandomEyesColor()
-   };
+  };
 }
 
 var wizards = [];
-for (var j = 1; j <= 4 ;j++) {
+for (var j = 1; j <= 4; j++) {
   wizards.push(createWizards());
 }
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-for (var i=0; i < wizards.length ;i++) {
+for (var i = 0; i < wizards.length; i++) {
   var cloneWizard = similarWizardTemplate.cloneNode(true);
 
   cloneWizard.querySelector('.setup-similar-label').innerHTML = wizards[i].name;
