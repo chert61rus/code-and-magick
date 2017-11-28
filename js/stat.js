@@ -24,7 +24,7 @@ window.renderStatistics = function (ctx, names, times) {
       max = time;
       maxIndex = i;
     }
-}
+  }
 
   for (var j = 0; j < times.length; j++) {
     var timePercent = times[j] / max * 100;
@@ -35,9 +35,9 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
-  }
+    }
     ctx.fillRect(timeX, initialY + shiftY, indent, timeHeight);
-    ctx.fillStyle='black';
+    ctx.fillStyle = 'black';
     ctx.fillText(Math.round(times[j]), timeX, initialY + shiftY - 4);
     ctx.fillText(names[j], timeX, barHeigth + initialY + 20);
   }
