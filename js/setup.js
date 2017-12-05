@@ -11,6 +11,8 @@ var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)'
 
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
+var fireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
 function getRandomNames() {
   return firstNames[Math.round(Math.random() * (firstNames.length - 1))];
 }
@@ -36,7 +38,6 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 
 var fragment = document.createDocumentFragment();
 
-
 var wizards = [];
 
 for (var i = 0; i < 4; i++) {
@@ -57,3 +58,60 @@ for (var i = 0; i < 4; i++) {
 
 document.querySelector('.setup-similar-list').appendChild(fragment);
 document.querySelector('.setup-similar').classList.remove('hidden');
+
+var elemSetup = document.querySelector('.setup');
+
+document.querySelector('.setup-open').addEventListener('click', function(){
+ elemSetup.classList.remove('hidden');
+});
+
+document.querySelector('.setup-close').addEventListener('click', function(){
+ elemSetup.classList.add('hidden');
+});
+
+document.querySelector('.setup-open-icon').addEventListener('keydown', function(event){
+    if (event.keyCode == 13){
+      elemSetup.classList.remove('hidden');
+    };
+});
+
+document.addEventListener('keydown', function(event){
+    if (document.activeElement == document.querySelector('.setup-user-name')){
+        return;
+    }
+    if (event.keyCode == 27){
+      elemSetup.classList.add('hidden');
+    };
+});
+
+document.querySelector('.setup-close').addEventListener('keydown', function(){
+ if (event.keyCode == 13){
+      elemSetup.classList.add('hidden');
+    };
+});
+
+document.querySelector('.setup-submit').addEventListener('click', function(){
+});
+
+document.querySelector('.setup-submit').addEventListener('keydown', function(){
+    if (event.keyCode == 13){
+        document.querySelector('form').submit();
+    };
+});
+
+document.querySelector('.setup-wizard .wizard-coat').addEventListener('click', function()
+ {
+    this.style.fill = getRandomCoatColor();
+})
+
+document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', function()
+ {
+    this.style.fill = getRandomEyesColor();
+})
+
+document.querySelector('.setup-fireball-wrap').addEventListener('click', function()
+ {
+    this.style.background = fireballColor[Math.round(Math.random() * (fireballColor.length - 1))];
+})
+
+
