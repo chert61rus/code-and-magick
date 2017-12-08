@@ -100,18 +100,24 @@ document.querySelector('.setup-submit').addEventListener('keydown', function(){
 });
 
 document.querySelector('.setup-wizard .wizard-coat').addEventListener('click', function()
- {
-    this.style.fill = getRandomCoatColor();
+ {  
+    var randomCoatColor = getRandomCoatColor();
+    this.style.fill = randomCoatColor;
+    document.getElementsByName('coat-color')[0].value = randomCoatColor;
 })
 
 document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', function()
- {
-    this.style.fill = getRandomEyesColor();
+ {  
+    var randomEyesColor = getRandomEyesColor();
+    this.style.fill = randomEyesColor;
+    document.getElementsByName('eyes-color')[0].value = randomEyesColor;
 })
 
 document.querySelector('.setup-fireball-wrap').addEventListener('click', function()
  {
-    this.style.background = fireballColor[Math.round(Math.random() * (fireballColor.length - 1))];
+    var randomFireball = fireballColor[Math.round(Math.random() * (fireballColor.length - 1))];
+    this.style.background = randomFireball;
+    document.getElementsByName('fireball-color')[0].value = randomFireball;
 })
 
 
