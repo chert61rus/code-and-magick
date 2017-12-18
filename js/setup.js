@@ -1,5 +1,5 @@
 'use strict';
-
+(function(){
 var artifact;
 var artifactSetup = document.querySelector('.setup-artifacts');
 
@@ -43,3 +43,34 @@ artifactSetup.addEventListener('dragenter', function(event){
 artifactSetup.addEventListener('dragleave', function(event){
   event.target.style.background = '';
 })
+
+var fillElement = function(element, color) {
+  element.style.fill = color;
+};
+
+var changeElementBackground = function(element, color) {
+  element.style.backgroundColor = color;
+};
+
+colorizeElem.onCoatColorChange = function(){
+  var randomColor = colorizeElement(wizardCoat, coatColor, fillElement);
+  document.getElementsByName('coat-color')[0].value = randomColor;
+};
+
+colorizeElem.onEyesColorChange = function(){
+  var randomColor = colorizeElement(wizardEyes, eyesColor, fillElement);
+  document.getElementsByName('eyes-color')[0].value = randomColor;
+};
+
+colorizeElem.onFireballChange = function(){
+  var randomColor = colorizeElement(wizardFireball, fireballColor, changeElementBackground);
+  document.getElementsByName('fireball-color')[0].value = randomColor;
+};
+
+var colorizeElement = function(elem, colors, fill){
+  var randomColor = colors[Math.round(Math.random() * (colors.length - 1))];
+  fill(elem, randomColor);
+  return randomColor;
+}
+
+}())
