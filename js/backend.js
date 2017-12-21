@@ -22,8 +22,24 @@
      xhr.timeout = 10000; // 10s
      xhr.send();
     },
-    save: function(){     
+    save: function(data, onLoad, onError){
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://js.dump.academy/code-and-magick');
+      xhr.addEventListener('load', function(){
+        if (xhr.status == 200){
+          onLoad();
+        } else {
+          onError('Произошла ошибка соединения');
+        }
+      })
+      xhr.addEventListener('error', function () {
+        onError('Произошла ошибка соединения');
+      });
+      xhr.addEventListener('timeout', function () {
+        onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+      });
+     xhr.timeout = 10000; // 10s
+      xhr.send(data);
     }
   }
-
 }())

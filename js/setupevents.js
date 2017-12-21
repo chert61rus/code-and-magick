@@ -27,18 +27,32 @@
         };
     });
 
-    document.querySelector('.setup-close').addEventListener('keydown', function(){
+    document.querySelector('.setup-close').addEventListener('keydown', function(event){
      if (event.keyCode == 13){
           elemSetup.classList.add('hidden');
         };
     });
 
-    document.querySelector('.setup-submit').addEventListener('click', function(){
+    var form = document.querySelector('form');
+    var backSave = function(){
+        if(document.querySelector('[name = username]').value.length > 1){
+            var formData = new FormData(form);
+            backend.save(formData, function(){
+              elemSetup.classList.add('hidden');
+            }, function(){
+            });
+        }
+    };
+
+    document.querySelector('.setup-submit').addEventListener('click', function(event){
+        backSave();
+        event.preventDefault();
     });
 
-    document.querySelector('.setup-submit').addEventListener('keydown', function(){
+    document.querySelector('.setup-submit').addEventListener('keydown', function(event){
         if (event.keyCode == 13){
-            document.querySelector('form').submit();
+          backSave();
         };
+        event.preventDefault();
     });
 }())
