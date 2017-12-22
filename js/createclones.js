@@ -33,11 +33,6 @@
       node.textContent = errorMessage; 
       document.body.insertAdjacentElement('afterbegin', node);
     };
-
-
-
-
-
     backend.load(onLoad, onError);
   
 }())
