@@ -1,26 +1,12 @@
 'use strict';
-(function(){
-	window.colorizeElem = {
-    	onCoatColorChange: function(){},
-    	onEyesColorChange: function(){},
-    	onFireballChange: function(){}
-    }
 
-    window.wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
-	wizardCoat.addEventListener('click', function()
-     {
-        colorizeElem.onCoatColorChange();
-    })
+(function () {
 
-    window.wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
-    wizardEyes.addEventListener('click', function()
-     {
-        colorizeElem.onEyesColorChange();
-    })
-    
-    window.wizardFireball = document.querySelector('.setup-fireball-wrap');
-    wizardFireball.addEventListener('click', function()
-     {
-        colorizeElem.onFireballChange();
-    })
-}())
+  window.colorize = function (element, color, callback) {
+    element.addEventListener('click', function () {
+      if (typeof callback === 'function') {
+        callback(element, color);
+      }
+    });
+  };
+})();
